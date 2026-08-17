@@ -27,7 +27,7 @@ st.write("Upload a flower image and let EfficientNet-B0 classify it.")
 # FastAPI Backend URL
 # =========================================================
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = "https://flower-detection-api-izfn.onrender.com/predict"
 
 
 # =========================================================
