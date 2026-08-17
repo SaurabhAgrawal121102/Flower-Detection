@@ -6,6 +6,7 @@ import io
 import torch
 import torch.nn as nn
 from torchvision.models import efficientnet_b0
+from pathlib import Path
 
 
 # =========================================================
@@ -36,6 +37,12 @@ class_names = [
 # Load EfficientNet-B0
 # =========================================================
 
+
+BASE_DIR = Path(__file__).resolve().parent
+
+MODEL_PATH = BASE_DIR / "efficientnet_b0_flowers_two.pth"
+print("Model path:", MODEL_PATH)
+print("Model exists:", MODEL_PATH.exists())
 model = efficientnet_b0(weights=None)
 
 # Change final classifier for 5 classes
@@ -45,13 +52,14 @@ model.classifier[1] = nn.Linear(
 )
 
 
+
 # =========================================================
 # Load trained model
 # =========================================================
 
 model.load_state_dict(
     torch.load(
-        "efficientnet_b0_flowers.pth",
+        MODEL_PATH,
         map_location=device
     )
 )

@@ -49,7 +49,7 @@ unknown_test/
 # Large model files
 # ==========================
 
-*.pth
+
 *.pt
 *.onnx
 
